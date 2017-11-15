@@ -6,12 +6,23 @@
 <%-- <sql:query var="rs" dataSource="jdbc/trekadvisor">
 select id, fullname,email,username from users
 </sql:query> --%>
-
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
+
+<script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/popper.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
+<style>
+/* Make the image fully responsive */
+/* .carousel-inner img {
+	width: 100%;
+	height: 100%; */
+}
+</style>
 </head>
 <body>
 	Welome Home
@@ -21,14 +32,13 @@ select id, fullname,email,username from users
     Email ${row.email}<br/> 
     Text ${row.username}<br/> 
 </c:forEach>  --%>
-<%-- 
+	<%-- 
 	<c:forEach var="row" items="${Users}"> 
      Id ${row.id}<br /> 
    Name ${row.fullname}<br /> 
     Email ${row.email}<br /> 
     Text ${row.username}<br />
 	</c:forEach> --%>
-	
-	<a href="${pageContext.request.contextPath}/createuser">Create User</a>
+	<a href="${pageContext.request.contextPath}/Signup">Create User</a>
 </body>
 </html>

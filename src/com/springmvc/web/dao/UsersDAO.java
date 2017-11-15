@@ -19,12 +19,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springmvc.web.model.User;
 
+
 @Component("usersDao")
 public class UsersDAO {
 
 	private NamedParameterJdbcTemplate jdbc;
 
-	
 	
 	public UsersDAO() {
 		System.out.println("Successfully configured UsersDAO");
@@ -52,18 +52,19 @@ public class UsersDAO {
 
 		});
 	}
+
 	
 	public boolean update(User user) {
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
-		
-		return jdbc.update("update users set fullname=:fullname, email=:email, username=:username. password=:password where id=:id", params) == 1;
+
+		return jdbc.update("update users set fullname=:fullname, email=:email, username=:username,password=:password where id=:id", params) == 1;
 	}
 	
 	public boolean create(User user) {
 		
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
 		
-		return jdbc.update("insert into users (fullname, username, email, password) values (:fullname, :email, :username,:password)", params) == 1;
+		return jdbc.update("insert into users (fullname,email,username,password) values (:fullname, :email, :username,:password)", params) == 1;
 	}
 	
 	@Transactional
@@ -96,14 +97,15 @@ public class UsersDAO {
 						user.setFullname(rs.getString("fullname"));
 						user.setEmail(rs.getString("email"));
 						user.setUsername(rs.getString("username"));
-
+						user.setPassword(rs.getString("password"));
 						return user;
 					}
 
 				});
 	}
 	
-	
-	
+
 }
+
+
 	
