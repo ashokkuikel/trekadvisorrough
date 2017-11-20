@@ -1,1 +1,1 @@
-#myTrekadvisor
+Spring MVC application
