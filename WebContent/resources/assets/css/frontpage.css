@@ -1,0 +1,49 @@
+    @media screen and (min-width: 1280px) {
+    	#myCarousel
+    	{
+    		margin-top: 50px;
+    		min-width: 100%;
+    	}
+
+    	.item
+    	{
+    		max-height: 75vh !important;
+    	}
+
+    	.img
+    	{
+    		height: 100%;
+    		width: 100%;
+    	}
+    }
+
+
+    @media screen and (min-width: 768px) {
+    	#myCarousel
+    	{
+    		margin-top: 50px;
+    		min-width: 100%;
+    	}
+
+    	.item
+    	{
+    		max-height: 75vh !important;
+    	}
+    }
+
+
+    @media screen and (min-width: 480px) {
+    	#myCarousel
+    	{
+    		margin-top: 50px;
+    		min-width: 100%;
+    	}
+
+    	.item
+    	{
+    		max-height: 75vh !important;
+    	}
+    }
+
+
+
