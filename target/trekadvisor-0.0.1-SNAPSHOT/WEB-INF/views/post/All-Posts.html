@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Posts| MytrekAdvsior</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="../css/static/css/sidebar.css">
+
+<script type="text/javascript" src="./js/validpassword.js"></script>
+<script type="text/javascript">
+    window.alert = function(){};
+    var defaultCSS = document.getElementById('bootstrap-css');
+    function changeCSS(css){
+      if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
+      else $('head > link').filter(':first').replaceWith(defaultCSS); 
+    }
+    $( document ).ready(function() {
+      var iframe_height = parseInt($('html').height()); 
+      window.parent.postMessage( iframe_height, 'https://bootsnipp.com');
+    });
+  </script>
+<style type="text/css">
+.nav-side-menu {
+	min-height: 660px !important;
+}
+</style>
+
+</head>
+<body>
+
+	<!-- Sidebar -->
+	<div class="nav-side-menu col-sm-4">
+		<div class="brand">
+			<h5>MyTrekAdvisor</h5>
+		</div>
+		<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
+			data-target="#menu-content"></i>
+		<div class="text-center">
+			<br /> <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+			<h6>Ashok kuikel</h6>
+			<h6>@dreamspark71</h6>
+			<a href="#"><i class="fa fa-power-off fa-2x" aria-hidden="true"
+				style="color: red"></i></a>
+		</div>
+		<div class="menu-list">
+
+			<ul id="menu-content" class="menu-content collapse out">
+				<li><a href="#"> <i class="fa fa-dashboard fa-lg"></i>
+						Dashboard
+				</a></li>
+
+				<li data-toggle="collapse" data-target="#products"
+					class="collapsed active"><a href="#"><i
+						class="fa fa-thumb-tack" aria-hidden="true"></i>Posts<span
+						class="arrow"></span></a></li>
+				<ul class="sub-menu collapse" id="products">
+					<li class="active"><a href="Allpost">All posts</a></li>
+					<li><a href="New">Add post</a></li>
+					<li><a href="#">Category</a></li>
+					<li><a href="#">Tabs & Accordions</a></li>
+				</ul>
+
+				<li data-toggle="collapse" data-target="#service" class="collapsed">
+					<a href="#"><i class="fa fa-file-o" aria-hidden="true"></i>Pages<span
+						class="arrow"></span></a>
+				</li>
+				<ul class="sub-menu collapse" id="service">
+					<li>All pages</li>
+					<li>Add Page</li>
+					<li>Edit page</li>
+				</ul>
+
+
+				<li data-toggle="collapse" data-target="#new" class="collapsed">
+					<a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>User<span
+						class="arrow"></span></a>
+				</li>
+				<ul class="sub-menu collapse" id="new">
+					<li>All Users</li>
+					<li>Add User</li>
+
+				</ul>
+
+				<li><a href="#"> <i class="fa fa-wrench" aria-hidden="true"></i>
+						Profile
+				</a></li>
+
+			</ul>
+		</div>
+
+	</div>
+	<!-- End Sidebar -->
+	<center>
+		<h4>${message}
+	</center>
+	<div class="col-sm-9" style="margin-top: 3%">
+		<h3>All Products</h3>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th width="119"><b>ID</b>
+					</td>
+					<th width="168"><b>TITLE</b>
+					</td>
+					<th width="168"><b>DESCRIPTION</b>
+					</td>
+					<th width="168"><b>PRICE</b>
+					</td>
+					<th width="168"><b>Action</b></th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				<c:forEach var="row" items="${posts}">
+					<tr>
+						<td>${row.post_id}</td>
+						<td>${row.post_title}</td>
+						<td>${row.post_description}</td>
+						<td>${row.post_category}</td>
+						<td>${row.post_price}</td>
+						<td>
+							<div class="btn-group" role="group" aria-label="Basic example">
+								<button type="button" class="btn btn-secondary">
+									<a style="color: black;" href="editPost?post_id=${row.post_id}">Edit</a>
+								</button>
+
+								<button type="button" class="btn btn-danger">
+									<a style="color: black;"
+										onclick="return confirm('Are you sure you want to delete this user?')"
+										href="deletePost?post_id=${row.post_id}">Remove</a>
+								</button>
+
+
+							</div>
+						</td>
+
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+	</div>
+	<!-- 
+		<div class="panel panel-inverse">
+			<div class="panel-body text-center">Copyright &copy; 2017
+				MYTREKADVISOR.All right Reserved</div>
+		</div> -->
+</body>
+</html>
